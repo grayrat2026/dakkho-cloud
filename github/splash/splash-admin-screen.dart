@@ -4,7 +4,7 @@ import 'package:lottie/lottie.dart';
 /// DAKKHO Admin Panel — Splash Screen.
 ///
 /// Lottie animation spelling "DAKKHO" with Purple→Blue accent morph.
-/// Deep Navy background. Used as entry point before auth check.
+/// Deep Navy background. Nunito 900 as default font.
 class SplashScreen extends StatefulWidget {
   final VoidCallback onComplete;
 
@@ -109,14 +109,14 @@ class _SplashScreenState extends State<SplashScreen>
 
                   const SizedBox(height: 32),
 
-                  // ── Admin Label ──
+                  // ── Admin Label (Nunito 900) ──
                   _FadeInText(
                     text: 'অ্যাডমিন প্যানেল',
                     style: const TextStyle(
+                      fontFamily: 'Nunito',
                       color: purpleGlow,
                       fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'HindSiliguri',
+                      fontWeight: FontWeight.w900, // Nunito 900
                     ),
                     delay: const Duration(milliseconds: 1400),
                   ),
@@ -125,7 +125,9 @@ class _SplashScreenState extends State<SplashScreen>
 
                   _FadeInText(
                     text: 'Admin Panel',
-                    style: TextStyle(
+                    style: const TextStyle(
+                      fontFamily: 'Nunito',
+                      fontWeight: FontWeight.w900, // Nunito 900
                       color: textSecondary,
                       letterSpacing: 2.5,
                       fontSize: 12,
@@ -146,8 +148,10 @@ class _SplashScreenState extends State<SplashScreen>
               right: 0,
               child: _FadeInText(
                 text: 'v1.0.0',
-                style: TextStyle(
-                  color: textTertiary.withOpacity(0.5),
+                style: const TextStyle(
+                  fontFamily: 'Nunito',
+                  fontWeight: FontWeight.w900,
+                  color: Color(0x806B7280), // textTertiary 50% opacity
                   fontSize: 11,
                   letterSpacing: 1,
                 ),
