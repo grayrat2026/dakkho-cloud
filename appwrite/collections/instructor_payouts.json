@@ -1,0 +1,163 @@
+{
+  "name": "instructor_payouts",
+  "$id": "instructor_payouts",
+  "fields": [
+    {
+      "key": "instructor_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "period_start",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "period_end",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "total_earnings_bdt",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "platform_fee_bdt",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "net_payout_bdt",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "enrollment_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "status",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "pending",
+      "array": false,
+      "elements": ["pending", "processing", "paid", "failed"]
+    },
+    {
+      "key": "payment_method",
+      "type": "enum",
+      "size": 10,
+      "required": false,
+      "default": "bkash",
+      "array": false,
+      "elements": ["bkash", "nagad", "bank"]
+    },
+    {
+      "key": "payment_account",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "paid_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "transaction_ref",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "notes",
+      "type": "string",
+      "size": 1000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_instructor_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["instructor_id", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_period",
+      "type": "key",
+      "status": "available",
+      "attributes": ["period_start", "period_end"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

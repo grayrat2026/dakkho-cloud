@@ -1,0 +1,148 @@
+{
+  "name": "audit_logs",
+  "$id": "audit_logs",
+  "fields": [
+    {
+      "key": "actor_id",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "actor_type",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "user",
+      "array": false,
+      "elements": ["user", "admin", "system", "function"]
+    },
+    {
+      "key": "action",
+      "type": "string",
+      "size": 100,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "resource_type",
+      "type": "string",
+      "size": 50,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "resource_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "changes",
+      "type": "string",
+      "size": 10000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "ip_address",
+      "type": "string",
+      "size": 45,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "user_agent",
+      "type": "string",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "severity",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "info",
+      "array": false,
+      "elements": ["info", "warning", "critical"]
+    },
+    {
+      "key": "metadata",
+      "type": "string",
+      "size": 5000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_actor",
+      "type": "key",
+      "status": "available",
+      "attributes": ["actor_id"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_action",
+      "type": "key",
+      "status": "available",
+      "attributes": ["action"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_resource",
+      "type": "key",
+      "status": "available",
+      "attributes": ["resource_type", "resource_id"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_created",
+      "type": "key",
+      "status": "available",
+      "attributes": ["created_at"],
+      "orders": ["DESC"]
+    },
+    {
+      "key": "idx_severity",
+      "type": "key",
+      "status": "available",
+      "attributes": ["severity"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": [],
+    "delete": []
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "name": "notification_templates",
+  "$id": "notification_templates",
+  "fields": [
+    {
+      "key": "template_key",
+      "type": "string",
+      "size": 100,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title_bn",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title_en",
+      "type": "string",
+      "size": 200,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "body_bn",
+      "type": "string",
+      "size": 1000,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "body_en",
+      "type": "string",
+      "size": 1000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "channel",
+      "type": "enum",
+      "size": 10,
+      "required": true,
+      "default": "push",
+      "array": false,
+      "elements": ["push", "email", "both"]
+    },
+    {
+      "key": "category",
+      "type": "string",
+      "size": 50,
+      "required": true,
+      "default": "general",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "icon",
+      "type": "string",
+      "size": 200,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "action_url_template",
+      "type": "string",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_active",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_key",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["template_key"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_category",
+      "type": "key",
+      "status": "available",
+      "attributes": ["category"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "device-register",
+  "version": "1.0.0",
+  "description": "DAKKHO 1-device limit enforcement and swap management",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

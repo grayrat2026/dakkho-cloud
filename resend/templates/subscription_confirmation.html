@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সাবস্ক্রিপশন নিশ্চিতকরণ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+      background-color: #0A0E1A;
+      color: #E8ECF4;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .email-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #0A0E1A;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0A0E1A 0%, #121830 100%);
+      padding: 40px 32px 24px;
+      text-align: center;
+      border-bottom: 2px solid #00D4FF;
+    }
+    
+    .logo {
+      font-size: 36px;
+      font-weight: 700;
+      color: #00D4FF;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    
+    .logo-subtitle {
+      font-size: 14px;
+      color: #7A8599;
+      letter-spacing: 1px;
+    }
+    
+    .content {
+      padding: 40px 32px;
+    }
+    
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      background: rgba(0, 212, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .success-icon span {
+      font-size: 36px;
+    }
+    
+    .greeting {
+      font-size: 22px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .message {
+      font-size: 16px;
+      color: #B8C1D3;
+      margin-bottom: 24px;
+      line-height: 1.8;
+      text-align: center;
+    }
+    
+    .subscription-card {
+      background: linear-gradient(135deg, #121830 0%, #0A0E1A 100%);
+      border: 1px solid #1E2740;
+      border-radius: 12px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    
+    .subscription-card .plan-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #00D4FF;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .subscription-detail {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(30, 39, 64, 0.8);
+    }
+    
+    .subscription-detail:last-child {
+      border-bottom: none;
+    }
+    
+    .subscription-detail .label {
+      color: #7A8599;
+      font-size: 14px;
+    }
+    
+    .subscription-detail .value {
+      color: #E8ECF4;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    
+    .feature-item {
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      font-size: 13px;
+      color: #B8C1D3;
+    }
+    
+    .feature-item .feature-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+      color: #0A0E1A;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 24px 0;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #1E2740, transparent);
+      margin: 32px 0;
+    }
+    
+    .footer {
+      padding: 24px 32px 40px;
+      text-align: center;
+      border-top: 1px solid #1E2740;
+    }
+    
+    .footer p {
+      font-size: 13px;
+      color: #5A6577;
+      line-height: 1.6;
+    }
+    
+    .footer a {
+      color: #00D4FF;
+      text-decoration: none;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .content { padding: 24px 20px; }
+      .header { padding: 24px 20px 16px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .cta-button { display: block; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">ডাকো</div>
+      <div class="logo-subtitle">DAKKHO — শিক্ষাই শক্তি</div>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+      <div class="success-icon">
+        <span>✅</span>
+      </div>
+      
+      <p class="greeting">সাবস্ক্রিপশন সক্রিয়!</p>
+      
+      <p class="message">
+        {{userName}}, আপনার সাবস্ক্রিপশন সফলভাবে সক্রিয় হয়েছে। 
+        এখন থেকে সকল প্রিমিয়াম কোর্স ও ফিচার আনলিমিটেড ব্যবহার করুন!
+      </p>
+      
+      <!-- Subscription Details Card -->
+      <div class="subscription-card">
+        <div class="plan-name">{{planName}}</div>
+        
+        <div class="subscription-detail">
+          <span class="label">প্ল্যান</span>
+          <span class="value">{{planName}}</span>
+        </div>
+        <div class="subscription-detail">
+          <span class="label">মূল্য</span>
+          <span class="value">৳{{planPrice}}/মাস</span>
+        </div>
+        <div class="subscription-detail">
+          <span class="label">সক্রিয় হয়েছে</span>
+          <span class="value">{{activationDate}}</span>
+        </div>
+        <div class="subscription-detail">
+          <span class="label">পরবর্তী নবায়ন</span>
+          <span class="value">{{renewalDate}}</span>
+        </div>
+        <div class="subscription-detail">
+          <span class="label">পেমেন্ট পদ্ধতি</span>
+          <span class="value">{{paymentMethod}}</span>
+        </div>
+      </div>
+      
+      <!-- Features Grid -->
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-icon">📹</div>
+          আনলিমিটেড ভিডিও
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📝</div>
+          সকল কুইজ ও টেস্ট
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📡</div>
+          লাইভ ক্লাস
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📥</div>
+          অফলাইন ডাউনলোড
+        </div>
+      </div>
+      
+      <div style="text-align: center;">
+        <a href="{{appDeepLink}}/home" class="cta-button">পড়াশোনা শুরু করুন</a>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <p class="message" style="font-size: 14px;">
+        ⚡ সাবস্ক্রিপশন যেকোনো সময় ক্যানসেল করতে পারবেন। 
+        ক্যানসেল করলে বর্তমান মেয়াদ শেষ পর্যন্ত সুবিধা পাবেন।
+      </p>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p>
+        এই ইমেইলটি {{userEmail}}-এ পাঠানো হয়েছে।<br>
+        <a href="{{appDeepLink}}/subscription">সাবস্ক্রিপশন ব্যবস্থাপনা</a> · 
+        <a href="{{unsubscribeUrl}}">আনসাবস্ক্রাইব</a>
+      </p>
+      <p style="margin-top: 16px;">
+        © {{currentYear}} DAKKHO. সর্বস্বত্ব সংরক্ষিত।<br>
+        ঢাকা, বাংলাদেশ
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "livekit-token",
+  "version": "1.0.0",
+  "description": "Generate LiveKit JWT tokens for DAKKHO live classes",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "livekit-server-sdk": "^2.9.0"
+  }
+}

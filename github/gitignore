@@ -1,0 +1,99 @@
+# =============================================================================
+# DAKKHO Flutter .gitignore
+# Shared across dakkho-student, dakkho-admin, dakkho-instructor
+# =============================================================================
+
+# ── Environment & Secrets ──────────────────────────────────────────────
+.env
+*.env
+.env.*
+!.env.example
+
+# ── Android Signing ────────────────────────────────────────────────────
+*.jks
+*.keystore
+key.properties
+android/key.properties
+android/app/upload-keystore.jks
+
+# ── Firebase / Google Services ─────────────────────────────────────────
+# Keep template, ignore actual config
+google-services.json
+!google-services.json.example
+GoogleService-Info.plist
+!GoogleService-Info.plist.example
+
+# ── Build Artifacts ────────────────────────────────────────────────────
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.lock
+!pubspec.lock
+
+# ── Generated Files ────────────────────────────────────────────────────
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+**/generated/
+*.config.dart
+
+# ── FVM (Flutter Version Management) ──────────────────────────────────
+.fvm/
+
+# ── iOS ────────────────────────────────────────────────────────────────
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.flx
+ios/Flutter/app.zip
+ios/Flutter/flutter_assets/
+ios/Flutter/flutter_export_environment.sh
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+
+# ── Android ────────────────────────────────────────────────────────────
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+android/build/
+android/captures/
+android/local.properties
+android/gradle.properties
+!android/gradle/wrapper/gradle-wrapper.properties
+
+# ── IDE & Editor ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.DS_Store
+.atom/
+.intellij/
+
+# ── Flutter ────────────────────────────────────────────────────────────
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock  # For apps, lock files should be committed; uncomment if using packages
+
+# ── Coverage ───────────────────────────────────────────────────────────
+coverage/
+*.lcov
+
+# ── L10n ───────────────────────────────────────────────────────────────
+lib/l10n/gen/
+.dart_tool/flutter_gen/
+
+# ── Miscellaneous ──────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+.cache/
+.npm/
+node_modules/

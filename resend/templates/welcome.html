@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAKKHO-তে স্বাগতম!</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+      background-color: #0A0E1A;
+      color: #E8ECF4;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .email-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #0A0E1A;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0A0E1A 0%, #121830 100%);
+      padding: 40px 32px 24px;
+      text-align: center;
+      border-bottom: 2px solid #00D4FF;
+    }
+    
+    .logo {
+      font-size: 36px;
+      font-weight: 700;
+      color: #00D4FF;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    
+    .logo-subtitle {
+      font-size: 14px;
+      color: #7A8599;
+      letter-spacing: 1px;
+    }
+    
+    .content {
+      padding: 40px 32px;
+    }
+    
+    .greeting {
+      font-size: 22px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    
+    .message {
+      font-size: 16px;
+      color: #B8C1D3;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    
+    .highlight-box h3 {
+      color: #00D4FF;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+      color: #B8C1D3;
+      font-size: 15px;
+    }
+    
+    .feature-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #00D4FF;
+      font-weight: bold;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+      color: #0A0E1A;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 24px 0;
+      letter-spacing: 0.5px;
+    }
+    
+    .trial-badge {
+      display: inline-block;
+      background: rgba(0, 212, 255, 0.15);
+      border: 1px solid rgba(0, 212, 255, 0.4);
+      color: #00D4FF;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 20px;
+      margin: 16px 0;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #1E2740, transparent);
+      margin: 32px 0;
+    }
+    
+    .footer {
+      padding: 24px 32px 40px;
+      text-align: center;
+      border-top: 1px solid #1E2740;
+    }
+    
+    .footer p {
+      font-size: 13px;
+      color: #5A6577;
+      line-height: 1.6;
+    }
+    
+    .footer a {
+      color: #00D4FF;
+      text-decoration: none;
+    }
+    
+    .social-links {
+      margin-top: 16px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      color: #5A6577;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .content { padding: 24px 20px; }
+      .header { padding: 24px 20px 16px; }
+      .greeting { font-size: 20px; }
+      .message { font-size: 15px; }
+      .cta-button { display: block; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">ডাকো</div>
+      <div class="logo-subtitle">DAKKHO — শিক্ষাই শক্তি</div>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+      <p class="greeting">স্বাগতম, {{userName}}! 🎉</p>
+      
+      <p class="message">
+        ডাকো পরিবারে আপনাকে স্বাগতম! আপনি এখন বাংলাদেশের সেরা বিটিইবি 
+        শিক্ষা প্ল্যাটফর্মের অংশ।
+      </p>
+      
+      <div class="trial-badge">
+        🎁 ৩ দিনের ফ্রি ট্রায়াল সক্রিয়!
+      </div>
+      
+      <div class="highlight-box">
+        <h3>আপনি যা যা পাচ্ছেন:</h3>
+        <ul class="feature-list">
+          <li>৭টি বিভাগের সকল বিটিইবি কোর্স</li>
+          <li>উচ্চমানের ভিডিও লেকচার</li>
+          <li>ইন্টার‍্যাক্টিভ কুইজ ও মডেল টেস্ট</li>
+          <li>লাইভ ক্লাস ও সরাসরি প্রশ্নোত্তর</li>
+          <li>অফলাইন ডাউনলোড সুবিধা</li>
+          <li>কমিউনিটি চ্যাট ও আলোচনা</li>
+        </ul>
+      </div>
+      
+      <p class="message">
+        আপনার ৩ দিনের ফ্রি ট্রায়াল এখনই শুরু হয়েছে। সকল প্রিমিয়াম 
+        ফিচার বিনামূল্যে ব্যবহার করুন!
+      </p>
+      
+      <div style="text-align: center;">
+        <a href="{{appDeepLink}}/home" class="cta-button">এখনই শুরু করুন</a>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <p class="message" style="font-size: 14px;">
+        💡 <strong>টিপস:</strong> প্রথম দিনেই আপনার বিভাগ ও সেমিস্টার সিলেক্ট 
+        করুন, তাহলে আমরা আপনার জন্য সঠিক কোর্স সাজিয়ে দিব।
+      </p>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p>
+        এই ইমেইলটি {{userEmail}}-এ পাঠানো হয়েছে।<br>
+        <a href="{{appDeepLink}}/settings/notifications">নোটিফিকেশন সেটিংস</a> · 
+        <a href="{{unsubscribeUrl}}">আনসাবস্ক্রাইব</a>
+      </p>
+      <div class="social-links">
+        <a href="https://facebook.com/dakkho.bd">Facebook</a>
+        <a href="https://youtube.com/@dakkho">YouTube</a>
+        <a href="https://dakkho.com.bd">ওয়েবসাইট</a>
+      </div>
+      <p style="margin-top: 16px;">
+        © {{currentYear}} DAKKHO. সর্বস্বত্ব সংরক্ষিত।<br>
+        ঢাকা, বাংলাদেশ
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+{
+  "name": "announcements",
+  "$id": "announcements",
+  "fields": [
+    {
+      "key": "title",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title_en",
+      "type": "string",
+      "size": 200,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "body",
+      "type": "string",
+      "size": 5000,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "body_en",
+      "type": "string",
+      "size": 5000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "type",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "info",
+      "array": false,
+      "elements": ["info", "warning", "urgent", "promotion"]
+    },
+    {
+      "key": "target",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "all",
+      "array": false,
+      "elements": ["all", "department", "semester", "course", "premium", "free"]
+    },
+    {
+      "key": "target_filter",
+      "type": "string",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "image_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "action_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_dismissible",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "priority",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_active",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "published_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "expires_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_by",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_active_priority",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_active", "priority"],
+      "orders": ["ASC", "DESC"]
+    },
+    {
+      "key": "idx_target",
+      "type": "key",
+      "status": "available",
+      "attributes": ["target"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_published",
+      "type": "key",
+      "status": "available",
+      "attributes": ["published_at"],
+      "orders": ["DESC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "name": "gamification_badges",
+  "$id": "gamification_badges",
+  "fields": [
+    {
+      "key": "badge_key",
+      "type": "string",
+      "size": 50,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "name_bn",
+      "type": "string",
+      "size": 100,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "name_en",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description_bn",
+      "type": "string",
+      "size": 500,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description_en",
+      "type": "string",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "icon_url",
+      "type": "url",
+      "size": 500,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "category",
+      "type": "string",
+      "size": 50,
+      "required": true,
+      "default": "achievement",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "rarity",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "common",
+      "array": false,
+      "elements": ["common", "uncommon", "rare", "epic", "legendary"]
+    },
+    {
+      "key": "xp_reward",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "trigger_condition",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_active",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "sort_order",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_key",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["badge_key"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_category",
+      "type": "key",
+      "status": "available",
+      "attributes": ["category"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

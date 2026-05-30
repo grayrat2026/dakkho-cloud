@@ -1,0 +1,521 @@
+{
+  "database": "dakkho_main",
+  "collections": {
+    "active_devices": {
+      "name": "active_devices",
+      "fields": [
+        "user_id",
+        "device_fingerprint",
+        "device_name",
+        "android_id",
+        "app_version",
+        "os_version",
+        "registered_at",
+        "last_seen_at",
+        "is_active"
+      ],
+      "indexes": [
+        "idx_user_active",
+        "idx_fingerprint",
+        "idx_last_seen"
+      ]
+    },
+    "announcements": {
+      "name": "announcements",
+      "fields": [
+        "title",
+        "title_en",
+        "body",
+        "body_en",
+        "type",
+        "target",
+        "target_filter",
+        "image_url",
+        "action_url",
+        "is_dismissible",
+        "priority",
+        "is_active",
+        "published_at",
+        "expires_at",
+        "created_by",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_active_priority",
+        "idx_target",
+        "idx_published"
+      ]
+    },
+    "app_config": {
+      "name": "app_config",
+      "fields": [
+        "key",
+        "value",
+        "type",
+        "category",
+        "description",
+        "is_public",
+        "is_editable",
+        "updated_by",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_key",
+        "idx_category",
+        "idx_is_public"
+      ]
+    },
+    "audit_logs": {
+      "name": "audit_logs",
+      "fields": [
+        "actor_id",
+        "resource_type",
+        "resource_id",
+        "ip_address",
+        "created_at"
+      ],
+      "indexes": [
+        "idx_actor",
+        "idx_action",
+        "idx_resource",
+        "idx_created"
+      ]
+    },
+    "chapters": {
+      "name": "chapters",
+      "fields": [
+        "course_id",
+        "title",
+        "title_en",
+        "description",
+        "sort_order",
+        "is_published",
+        "total_videos",
+        "total_duration_minutes",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_course_sort",
+        "idx_course_published"
+      ]
+    },
+    "chat_messages": {
+      "name": "chat_messages",
+      "fields": [
+        "room_id",
+        "room_type",
+        "sender_id",
+        "message_type",
+        "content",
+        "file_id",
+        "reply_to",
+        "is_edited",
+        "is_deleted",
+        "is_reported",
+        "report_reason",
+        "metadata",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_room_created",
+        "idx_sender",
+        "idx_room_type"
+      ]
+    },
+    "coupons": {
+      "name": "coupons",
+      "fields": [
+        "code",
+        "discount_type",
+        "discount_value",
+        "max_uses",
+        "used_count",
+        "max_uses_per_user",
+        "applicable_plans",
+        "valid_from",
+        "valid_until",
+        "is_active",
+        "created_by",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_code",
+        "idx_active_valid"
+      ]
+    },
+    "courses": {
+      "name": "courses",
+      "fields": [
+        "title",
+        "title_en",
+        "slug",
+        "description",
+        "department",
+        "semester",
+        "subject_code",
+        "instructor_id",
+        "thumbnail_url",
+        "banner_url",
+        "is_free",
+        "price_bdt",
+        "is_featured",
+        "is_trending",
+        "status",
+        "total_duration_minutes",
+        "total_chapters",
+        "total_videos",
+        "enrollment_count",
+        "rating_avg",
+        "rating_count",
+        "tags",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_slug",
+        "idx_department_semester",
+        "idx_instructor",
+        "idx_status",
+        "idx_featured",
+        "idx_trending",
+        "idx_free"
+      ]
+    },
+    "device_swap_logs": {
+      "name": "device_swap_logs",
+      "fields": [
+        "user_id",
+        "old_device_fingerprint",
+        "new_device_fingerprint",
+        "swap_reason",
+        "admin_who_forced",
+        "old_device_name",
+        "new_device_name",
+        "ip_address",
+        "created_at"
+      ],
+      "indexes": [
+        "idx_user_id",
+        "idx_created_at"
+      ]
+    },
+    "doubts": {
+      "name": "doubts",
+      "fields": [
+        "user_id",
+        "video_id",
+        "course_id",
+        "timestamp_seconds",
+        "title",
+        "description",
+        "status",
+        "resolution",
+        "resolved_by",
+        "resolved_at",
+        "ai_response",
+        "upvote_count",
+        "chapter_id",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_user_status",
+        "idx_video_timestamp",
+        "idx_course_status",
+        "idx_status_upvotes"
+      ]
+    },
+    "gamification_badges": {
+      "name": "gamification_badges",
+      "fields": [
+        "badge_key",
+        "name_bn",
+        "name_en",
+        "description_bn",
+        "description_en",
+        "icon_url",
+        "category",
+        "rarity",
+        "xp_reward",
+        "trigger_condition",
+        "is_active",
+        "sort_order",
+        "created_at"
+      ],
+      "indexes": [
+        "idx_key",
+        "idx_category"
+      ]
+    },
+    "instructor_payouts": {
+      "name": "instructor_payouts",
+      "fields": [
+        "instructor_id",
+        "period_start",
+        "period_end",
+        "total_earnings_bdt",
+        "platform_fee_bdt",
+        "net_payout_bdt",
+        "enrollment_count",
+        "status",
+        "payment_method",
+        "payment_account",
+        "paid_at",
+        "transaction_ref",
+        "notes",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_instructor_status",
+        "idx_period"
+      ]
+    },
+    "live_classes": {
+      "name": "live_classes",
+      "fields": [
+        "course_id",
+        "instructor_id",
+        "title",
+        "description",
+        "scheduled_at",
+        "duration_minutes",
+        "livekit_room_name",
+        "status",
+        "recording_url",
+        "max_participants",
+        "current_participants",
+        "thumbnail_url",
+        "is_premium_only",
+        "ended_at",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_scheduled",
+        "idx_course_status",
+        "idx_instructor",
+        "idx_status_scheduled"
+      ]
+    },
+    "notification_templates": {
+      "name": "notification_templates",
+      "fields": [
+        "template_key",
+        "title_bn",
+        "title_en",
+        "body_bn",
+        "body_en",
+        "channel",
+        "category",
+        "icon",
+        "action_url_template",
+        "is_active",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_key",
+        "idx_category"
+      ]
+    },
+    "offline_downloads": {
+      "name": "offline_downloads",
+      "fields": [
+        "user_id",
+        "video_id",
+        "course_id",
+        "file_size_bytes",
+        "downloaded_at",
+        "expires_at",
+        "license_key",
+        "device_fingerprint",
+        "status",
+        "last_verified_at",
+        "created_at"
+      ],
+      "indexes": [
+        "idx_user_video",
+        "idx_user_status",
+        "idx_expires"
+      ]
+    },
+    "payments_config": {
+      "name": "payments_config",
+      "fields": [
+        "gateway_slug",
+        "gateway_name",
+        "is_active",
+        "merchant_number",
+        "api_key_encrypted",
+        "api_secret_encrypted",
+        "base_url",
+        "callback_url",
+        "logo_url",
+        "color",
+        "sort_order",
+        "instructions_bn",
+        "instructions_en",
+        "updated_by",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_slug",
+        "idx_active"
+      ]
+    },
+    "quiz_attempts": {
+      "name": "quiz_attempts",
+      "fields": [
+        "user_id",
+        "quiz_id",
+        "answers",
+        "score",
+        "max_score",
+        "percentage",
+        "passed",
+        "correct_count",
+        "wrong_count",
+        "skipped_count",
+        "time_spent_seconds",
+        "tab_switch_count",
+        "is_flagged",
+        "started_at",
+        "completed_at",
+        "created_at"
+      ],
+      "indexes": [
+        "idx_user_quiz",
+        "idx_user_completed",
+        "idx_flagged"
+      ]
+    },
+    "quiz_questions": {
+      "name": "quiz_questions",
+      "fields": [
+        "quiz_id",
+        "question_text",
+        "question_text_en",
+        "option_a",
+        "option_b",
+        "option_c",
+        "option_d",
+        "correct_answer",
+        "explanation",
+        "explanation_en",
+        "marks",
+        "difficulty",
+        "topic_tag",
+        "image_url",
+        "sort_order",
+        "created_at"
+      ],
+      "indexes": [
+        "idx_quiz_sort",
+        "idx_difficulty"
+      ]
+    },
+    "quizzes": {
+      "name": "quizzes",
+      "fields": [
+        "course_id",
+        "chapter_id",
+        "title",
+        "description",
+        "quiz_type",
+        "time_limit_minutes",
+        "passing_score_percent",
+        "negative_marking",
+        "negative_mark_value",
+        "max_attempts",
+        "is_published",
+        "shuffle_questions",
+        "shuffle_options",
+        "show_answers_after",
+        "total_questions",
+        "is_premium_only",
+        "created_by",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_course_chapter",
+        "idx_type_published"
+      ]
+    },
+    "subscriptions": {
+      "name": "subscriptions",
+      "fields": [
+        "user_id",
+        "plan",
+        "status",
+        "started_at",
+        "expires_at",
+        "cancelled_at",
+        "payment_id",
+        "auto_renew",
+        "trial_days_remaining",
+        "features_json",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_user_status",
+        "idx_expires",
+        "idx_plan_status"
+      ]
+    },
+    "user_badges": {
+      "name": "user_badges",
+      "fields": [
+        "user_id",
+        "badge_id",
+        "earned_at",
+        "is_displayed"
+      ],
+      "indexes": [
+        "idx_user_badge",
+        "idx_user_displayed"
+      ]
+    },
+    "videos": {
+      "name": "videos",
+      "fields": [
+        "chapter_id",
+        "course_id",
+        "title",
+        "title_en",
+        "description",
+        "sort_order",
+        "duration_seconds",
+        "thumbnail_url",
+        "hls_manifest_url",
+        "drm_key_id",
+        "drm_key",
+        "raw_file_id",
+        "bunny_video_id",
+        "is_drm_protected",
+        "is_published",
+        "is_free_preview",
+        "file_size_bytes",
+        "views_count",
+        "created_at",
+        "updated_at"
+      ],
+      "indexes": [
+        "idx_chapter_sort",
+        "idx_course_published",
+        "idx_bunny_video"
+      ]
+    }
+  },
+  "buckets": {
+    "videos-raw": "Videos Raw"
+  }
+}

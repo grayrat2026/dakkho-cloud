@@ -1,0 +1,172 @@
+{
+  "name": "payments_config",
+  "$id": "payments_config",
+  "fields": [
+    {
+      "key": "gateway_slug",
+      "type": "string",
+      "size": 50,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "gateway_name",
+      "type": "string",
+      "size": 100,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_active",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "merchant_number",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "api_key_encrypted",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "api_secret_encrypted",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "base_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "callback_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "logo_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "color",
+      "type": "string",
+      "size": 7,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "sort_order",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "instructions_bn",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "instructions_en",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_by",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_slug",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["gateway_slug"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_active",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_active", "sort_order"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "name": "quiz_attempts",
+  "$id": "quiz_attempts",
+  "fields": [
+    {
+      "key": "user_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "quiz_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "answers",
+      "type": "string",
+      "size": 10000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "score",
+      "type": "float",
+      "size": 0,
+      "required": true,
+      "default": "0.0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "max_score",
+      "type": "float",
+      "size": 0,
+      "required": true,
+      "default": "0.0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "percentage",
+      "type": "float",
+      "size": 0,
+      "required": true,
+      "default": "0.0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "passed",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "correct_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "wrong_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "skipped_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "time_spent_seconds",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "tab_switch_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_flagged",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "started_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "completed_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_user_quiz",
+      "type": "key",
+      "status": "available",
+      "attributes": ["user_id", "quiz_id"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_user_completed",
+      "type": "key",
+      "status": "available",
+      "attributes": ["user_id", "completed_at"],
+      "orders": ["ASC", "DESC"]
+    },
+    {
+      "key": "idx_flagged",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_flagged"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

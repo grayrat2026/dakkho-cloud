@@ -1,0 +1,161 @@
+{
+  "name": "chat_messages",
+  "$id": "chat_messages",
+  "fields": [
+    {
+      "key": "room_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "room_type",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": ["batch", "course", "direct", "study_group", "support"]
+    },
+    {
+      "key": "sender_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "message_type",
+      "type": "enum",
+      "size": 10,
+      "required": true,
+      "default": "text",
+      "array": false,
+      "elements": ["text", "image", "voice", "file", "system"]
+    },
+    {
+      "key": "content",
+      "type": "string",
+      "size": 5000,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "file_id",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "reply_to",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_edited",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_deleted",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_reported",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "report_reason",
+      "type": "string",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "metadata",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_room_created",
+      "type": "key",
+      "status": "available",
+      "attributes": ["room_id", "created_at"],
+      "orders": ["ASC", "DESC"]
+    },
+    {
+      "key": "idx_sender",
+      "type": "key",
+      "status": "available",
+      "attributes": ["sender_id"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_room_type",
+      "type": "key",
+      "status": "available",
+      "attributes": ["room_type"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

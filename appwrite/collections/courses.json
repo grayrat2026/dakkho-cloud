@@ -1,0 +1,279 @@
+{
+  "name": "courses",
+  "$id": "courses",
+  "fields": [
+    {
+      "key": "title",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title_en",
+      "type": "string",
+      "size": 200,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "slug",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description",
+      "type": "string",
+      "size": 5000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "department",
+      "type": "enum",
+      "size": 30,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": ["computer", "electrical", "mechanical", "civil", "electronics", "textile", "automobile"]
+    },
+    {
+      "key": "semester",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "subject_code",
+      "type": "string",
+      "size": 20,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "instructor_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "thumbnail_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "banner_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_free",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "price_bdt",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_featured",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_trending",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "status",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "draft",
+      "array": false,
+      "elements": ["draft", "published", "archived"]
+    },
+    {
+      "key": "total_duration_minutes",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "total_chapters",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "total_videos",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "enrollment_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "rating_avg",
+      "type": "float",
+      "size": 0,
+      "required": false,
+      "default": "0.0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "rating_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "tags",
+      "type": "string",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_slug",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["slug"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_department_semester",
+      "type": "key",
+      "status": "available",
+      "attributes": ["department", "semester"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_instructor",
+      "type": "key",
+      "status": "available",
+      "attributes": ["instructor_id"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["status"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_featured",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_featured", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_trending",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_trending", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_free",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_free", "status"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin", "team:instructor"],
+    "update": ["team:admin", "team:instructor"],
+    "delete": ["team:admin"]
+  }
+}

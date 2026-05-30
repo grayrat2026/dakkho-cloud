@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ডিভাইস পরিবর্তন সতর্কতা</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+      background-color: #0A0E1A;
+      color: #E8ECF4;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .email-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #0A0E1A;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0A0E1A 0%, #121830 100%);
+      padding: 40px 32px 24px;
+      text-align: center;
+      border-bottom: 2px solid #FF6B35;
+    }
+    
+    .logo {
+      font-size: 36px;
+      font-weight: 700;
+      color: #00D4FF;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    
+    .logo-subtitle {
+      font-size: 14px;
+      color: #7A8599;
+      letter-spacing: 1px;
+    }
+    
+    .content {
+      padding: 40px 32px;
+    }
+    
+    .alert-banner {
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid rgba(255, 107, 53, 0.4);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    
+    .alert-banner .alert-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    
+    .alert-banner .alert-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FF6B35;
+      margin-bottom: 8px;
+    }
+    
+    .alert-banner .alert-message {
+      font-size: 14px;
+      color: #B8C1D3;
+    }
+    
+    .greeting {
+      font-size: 18px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    
+    .message {
+      font-size: 15px;
+      color: #B8C1D3;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    
+    .device-card {
+      background: #121830;
+      border: 1px solid #1E2740;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+    
+    .device-card h3 {
+      font-size: 15px;
+      color: #7A8599;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .device-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(30, 39, 64, 0.6);
+    }
+    
+    .device-row:last-child {
+      border-bottom: none;
+    }
+    
+    .device-row .label {
+      color: #7A8599;
+      font-size: 13px;
+    }
+    
+    .device-row .value {
+      color: #E8ECF4;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: right;
+    }
+    
+    .new-device {
+      border-left: 3px solid #FF6B35;
+      padding-left: 16px;
+    }
+    
+    .old-device {
+      border-left: 3px solid #7A8599;
+      padding-left: 16px;
+      opacity: 0.8;
+    }
+    
+    .warning-box {
+      background: rgba(255, 193, 7, 0.08);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+    }
+    
+    .warning-box p {
+      font-size: 14px;
+      color: #FFC107;
+      line-height: 1.7;
+    }
+    
+    .action-buttons {
+      text-align: center;
+      margin: 28px 0;
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 8px;
+    }
+    
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #1E2740;
+      color: #B8C1D3;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 8px;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #1E2740, transparent);
+      margin: 32px 0;
+    }
+    
+    .footer {
+      padding: 24px 32px 40px;
+      text-align: center;
+      border-top: 1px solid #1E2740;
+    }
+    
+    .footer p {
+      font-size: 13px;
+      color: #5A6577;
+      line-height: 1.6;
+    }
+    
+    .footer a {
+      color: #00D4FF;
+      text-decoration: none;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .content { padding: 24px 20px; }
+      .header { padding: 24px 20px 16px; }
+      .action-buttons { text-align: center; }
+      .btn-primary, .btn-secondary { display: block; margin: 8px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <!-- Header (orange accent for security alert) -->
+    <div class="header">
+      <div class="logo">ডাকো</div>
+      <div class="logo-subtitle">DAKKHO — নিরাপত্তা সতর্কতা</div>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+      <!-- Alert Banner -->
+      <div class="alert-banner">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-title">নতুন ডিভাইসে লগইন শনাক্ত</div>
+        <div class="alert-message">
+          আপনার ডাকো অ্যাকাউন্টে একটি নতুন ডিভাইস থেকে লগইন করা হয়েছে
+        </div>
+      </div>
+      
+      <p class="greeting">{{userName}},</p>
+      
+      <p class="message">
+        আপনার ডাকো অ্যাকাউন্টে নিচের ডিভাইস থেকে লগইন করা হয়েছে। 
+        যদি এটি আপনি না হয়ে থাকেন, অবিলম্বে পদক্ষেপ নিন।
+      </p>
+      
+      <!-- New Device Info -->
+      <div class="device-card new-device">
+        <h3>🆕 নতুন ডিভাইস</h3>
+        <div class="device-row">
+          <span class="label">ডিভাইস</span>
+          <span class="value">{{newDeviceName}}</span>
+        </div>
+        <div class="device-row">
+          <span class="label">অপারেটিং সিস্টেম</span>
+          <span class="value">{{newDeviceOS}}</span>
+        </div>
+        <div class="device-row">
+          <span class="label">সময়</span>
+          <span class="value">{{loginTime}}</span>
+        </div>
+        <div class="device-row">
+          <span class="label">আইপি ঠিকানা</span>
+          <span class="value">{{loginIP}}</span>
+        </div>
+        <div class="device-row">
+          <span class="label">অবস্থান</span>
+          <span class="value">{{loginLocation}}</span>
+        </div>
+      </div>
+      
+      <!-- Previous Device Info -->
+      <div class="device-card old-device">
+        <h3>📱 পূর্বের ডিভাইস (নিষ্ক্রিয়)</h3>
+        <div class="device-row">
+          <span class="label">ডিভাইস</span>
+          <span class="value">{{oldDeviceName}}</span>
+        </div>
+        <div class="device-row">
+          <span class="label">সর্বশেষ সক্রিয়</span>
+          <span class="value">{{lastActiveTime}}</span>
+        </div>
+      </div>
+      
+      <!-- Warning -->
+      <div class="warning-box">
+        <p>
+          🔒 <strong>গুরুত্বপূর্ণ:</strong> ডাকো প্রতি অ্যাকাউন্টে একটি ডিভাইসের 
+          অনুমতি দেয়। এই পরিবর্তন আপনার না হলে, আপনার অ্যাকাউন্ট 
+          সুরক্ষিত করতে নিচের বাটনে ক্লিক করুন।
+        </p>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a href="{{appDeepLink}}/security/confirm-device-swap?token={{confirmToken}}" class="btn-primary">
+          হ্যাঁ, এটি আমি
+        </a>
+        <a href="{{appDeepLink}}/security/revoke-device?token={{revokeToken}}" class="btn-secondary">
+          না, অ্যাকাউন্ট সুরক্ষিত করুন
+        </a>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <p class="message" style="font-size: 13px; text-align: center;">
+        এই লগইনটি আপনার সম্পাদিত না হলে, অবিলম্বে আপনার পাসওয়ার্ড পরিবর্তন করুন 
+        এবং আমাদের সাথে যোগাযোগ করুন: <a href="mailto:support@dakkho.com.bd" style="color: #00D4FF;">support@dakkho.com.bd</a>
+      </p>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p>
+        এই ইমেইলটি {{userEmail}}-এ পাঠানো হয়েছে।<br>
+        ডিভাইস সোয়াপ লগ দেখুন: <a href="{{appDeepLink}}/settings/devices">ডিভাইস ব্যবস্থাপনা</a>
+      </p>
+      <p style="margin-top: 16px;">
+        © {{currentYear}} DAKKHO. সর্বস্বত্ব সংরক্ষিত।<br>
+        ঢাকা, বাংলাদেশ
+      </p>
+    </div>
+  </div>
+</body>
+</html>

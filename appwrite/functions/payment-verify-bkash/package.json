@@ -1,0 +1,10 @@
+{
+  "name": "payment-verify-bkash",
+  "version": "1.0.0",
+  "description": "DAKKHO bKash payment verification with full token flow",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

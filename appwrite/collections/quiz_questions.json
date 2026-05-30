@@ -1,0 +1,172 @@
+{
+  "name": "quiz_questions",
+  "$id": "quiz_questions",
+  "fields": [
+    {
+      "key": "quiz_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "question_text",
+      "type": "string",
+      "size": 2000,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "question_text_en",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "option_a",
+      "type": "string",
+      "size": 500,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "option_b",
+      "type": "string",
+      "size": 500,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "option_c",
+      "type": "string",
+      "size": 500,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "option_d",
+      "type": "string",
+      "size": 500,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "correct_answer",
+      "type": "enum",
+      "size": 1,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": ["a", "b", "c", "d"]
+    },
+    {
+      "key": "explanation",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "explanation_en",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "marks",
+      "type": "float",
+      "size": 0,
+      "required": true,
+      "default": "1.0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "difficulty",
+      "type": "enum",
+      "size": 10,
+      "required": false,
+      "default": "medium",
+      "array": false,
+      "elements": ["easy", "medium", "hard"]
+    },
+    {
+      "key": "topic_tag",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "image_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "sort_order",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_quiz_sort",
+      "type": "key",
+      "status": "available",
+      "attributes": ["quiz_id", "sort_order"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_difficulty",
+      "type": "key",
+      "status": "available",
+      "attributes": ["quiz_id", "difficulty"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin", "team:instructor"],
+    "update": ["team:admin", "team:instructor"],
+    "delete": ["team:admin"]
+  }
+}

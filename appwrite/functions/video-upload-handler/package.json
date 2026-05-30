@@ -1,0 +1,10 @@
+{
+  "name": "video-upload-handler",
+  "version": "1.0.0",
+  "description": "DAKKHO video upload to Cloudflare R2 with presigned URLs",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

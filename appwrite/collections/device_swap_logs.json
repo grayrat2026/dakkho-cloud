@@ -1,0 +1,109 @@
+{
+  "name": "device_swap_logs",
+  "$id": "device_swap_logs",
+  "fields": [
+    {
+      "key": "user_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "old_device_fingerprint",
+      "type": "string",
+      "size": 128,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "new_device_fingerprint",
+      "type": "string",
+      "size": 128,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "swap_reason",
+      "type": "enum",
+      "size": 30,
+      "required": false,
+      "default": "user_initiated",
+      "array": false,
+      "elements": ["user_initiated", "admin_forced", "device_wiped"]
+    },
+    {
+      "key": "admin_who_forced",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "old_device_name",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "new_device_name",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "ip_address",
+      "type": "string",
+      "size": 45,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_user_id",
+      "type": "key",
+      "status": "available",
+      "attributes": ["user_id"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_created_at",
+      "type": "key",
+      "status": "available",
+      "attributes": ["created_at"],
+      "orders": ["DESC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": [],
+    "delete": []
+  }
+}

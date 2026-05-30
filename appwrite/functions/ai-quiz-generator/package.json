@@ -1,0 +1,10 @@
+{
+  "name": "ai-quiz-generator",
+  "version": "1.0.0",
+  "description": "DAKKHO AI quiz generation for BTEB diploma engineering using OpenAI/Gemini",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

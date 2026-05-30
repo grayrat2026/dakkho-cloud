@@ -1,0 +1,96 @@
+{
+  "name": "dakkho-live-class",
+  "description": "Default room template for DAKKHO live classes",
+  "config": {
+    "maxParticipants": 100,
+    "emptyTimeout": 300,
+    "maxDuration": 14400,
+    "autoRecording": false,
+    "egress": {
+      "room": {
+        "autoEnd": true,
+        "timeout": 300
+      }
+    },
+    "roomPreset": {
+      "kind": "group",
+      "features": [
+        "ROOM_FEATURE_PARTIAL_PUB",
+        "ROOM_FEATURE_P2P"
+      ]
+    }
+  },
+  "participantConfig": {
+    "default": {
+      "canPublish": true,
+      "canSubscribe": true,
+      "canPublishData": true,
+      "hidden": false,
+      "recorder": false
+    },
+    "instructor": {
+      "canPublish": true,
+      "canSubscribe": true,
+      "canPublishData": true,
+      "canUpdateMetadata": true,
+      "hidden": false,
+      "recorder": false,
+      "permissions": {
+        "canStartRecording": true,
+        "canEndRecording": true,
+        "canMuteParticipants": true,
+        "canRemoveParticipants": true
+      }
+    },
+    "student": {
+      "canPublish": false,
+      "canSubscribe": true,
+      "canPublishData": true,
+      "hidden": false,
+      "recorder": false
+    },
+    "moderator": {
+      "canPublish": true,
+      "canSubscribe": true,
+      "canPublishData": true,
+      "canUpdateMetadata": true,
+      "hidden": false,
+      "recorder": false,
+      "permissions": {
+        "canStartRecording": true,
+        "canEndRecording": true,
+        "canMuteParticipants": true,
+        "canRemoveParticipants": true
+      }
+    }
+  },
+  "videoConfig": {
+    "publishDefaults": {
+      "videoEncoding": {
+        "maxBitrate": 1500000,
+        "maxFramerate": 30
+      },
+      "screenShareEncoding": {
+        "maxBitrate": 3000000,
+        "maxFramerate": 15
+      },
+      "videoCodec": "VP8"
+    },
+    "roomDefaults": {
+      "videoCodec": "VP8",
+      "adaptationPreference": "balanced"
+    }
+  },
+  "audioConfig": {
+    "publishDefaults": {
+      "audioBitrate": 128000,
+      "disableRedEnc": false,
+      "audioQuality": "music"
+    }
+  },
+  "metadata": {
+    "project": "DAKKHO",
+    "environment": "production",
+    "createdBy": "dakkho-cloud-setup"
+  }
+}

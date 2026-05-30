@@ -1,0 +1,145 @@
+{
+  "name": "coupons",
+  "$id": "coupons",
+  "fields": [
+    {
+      "key": "code",
+      "type": "string",
+      "size": 30,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "discount_type",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "percentage",
+      "array": false,
+      "elements": ["percentage", "fixed"]
+    },
+    {
+      "key": "discount_value",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "max_uses",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "used_count",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "max_uses_per_user",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "1",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "applicable_plans",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "valid_from",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "valid_until",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_active",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_by",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_code",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["code"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_active_valid",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_active", "valid_from", "valid_until"],
+      "orders": ["ASC", "ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

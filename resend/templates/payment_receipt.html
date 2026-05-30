@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>পেমেন্ট রসিদ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+      background-color: #0A0E1A;
+      color: #E8ECF4;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .email-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #0A0E1A;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0A0E1A 0%, #121830 100%);
+      padding: 40px 32px 24px;
+      text-align: center;
+      border-bottom: 2px solid #00D4FF;
+    }
+    
+    .logo {
+      font-size: 36px;
+      font-weight: 700;
+      color: #00D4FF;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    
+    .logo-subtitle {
+      font-size: 14px;
+      color: #7A8599;
+      letter-spacing: 1px;
+    }
+    
+    .content {
+      padding: 40px 32px;
+    }
+    
+    .receipt-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    
+    .receipt-header h2 {
+      font-size: 22px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    
+    .receipt-header .receipt-id {
+      font-size: 13px;
+      color: #7A8599;
+      font-family: monospace;
+    }
+    
+    .receipt-card {
+      background: #121830;
+      border: 1px solid #1E2740;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(30, 39, 64, 0.6);
+    }
+    
+    .receipt-row:last-child {
+      border-bottom: none;
+    }
+    
+    .receipt-row .label {
+      color: #7A8599;
+      font-size: 14px;
+    }
+    
+    .receipt-row .value {
+      color: #E8ECF4;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: right;
+    }
+    
+    .receipt-row.total {
+      background: rgba(0, 212, 255, 0.08);
+      padding: 18px 24px;
+    }
+    
+    .receipt-row.total .label {
+      color: #00D4FF;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    
+    .receipt-row.total .value {
+      color: #00D4FF;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    
+    .status-success {
+      background: rgba(0, 200, 83, 0.15);
+      color: #00C853;
+      border: 1px solid rgba(0, 200, 83, 0.3);
+    }
+    
+    .message {
+      font-size: 15px;
+      color: #B8C1D3;
+      margin: 24px 0;
+      line-height: 1.8;
+    }
+    
+    .help-box {
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+    }
+    
+    .help-box p {
+      font-size: 13px;
+      color: #7A8599;
+    }
+    
+    .help-box a {
+      color: #00D4FF;
+      text-decoration: none;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #1E2740, transparent);
+      margin: 32px 0;
+    }
+    
+    .footer {
+      padding: 24px 32px 40px;
+      text-align: center;
+      border-top: 1px solid #1E2740;
+    }
+    
+    .footer p {
+      font-size: 13px;
+      color: #5A6577;
+      line-height: 1.6;
+    }
+    
+    .footer a {
+      color: #00D4FF;
+      text-decoration: none;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .content { padding: 24px 20px; }
+      .header { padding: 24px 20px 16px; }
+      .receipt-row { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">ডাকো</div>
+      <div class="logo-subtitle">DAKKHO — শিক্ষাই শক্তি</div>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+      <div class="receipt-header">
+        <h2>পেমেন্ট রসিদ</h2>
+        <div class="receipt-id">রসিদ নম্বর: {{receiptId}}</div>
+        <div style="margin-top: 12px;">
+          <span class="status-badge status-success">✓ পেমেন্ট সফল</span>
+        </div>
+      </div>
+      
+      <!-- Receipt Card -->
+      <div class="receipt-card">
+        <div class="receipt-row">
+          <span class="label">তারিখ</span>
+          <span class="value">{{paymentDate}}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">গ্রাহক</span>
+          <span class="value">{{userName}}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">ইমেইল</span>
+          <span class="value">{{userEmail}}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">প্ল্যান</span>
+          <span class="value">{{planName}}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">মেয়াদ</span>
+          <span class="value">{{billingPeriod}}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">পেমেন্ট পদ্ধতি</span>
+          <span class="value">{{paymentMethod}}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">লেনদেন আইডি</span>
+          <span class="value" style="font-family: monospace; font-size: 12px;">{{transactionId}}</span>
+        </div>
+        {{#discountAmount}}
+        <div class="receipt-row">
+          <span class="label">কুপন ছাড়</span>
+          <span class="value" style="color: #00C853;">-৳{{discountAmount}}</span>
+        </div>
+        {{/discountAmount}}
+        <div class="receipt-row total">
+          <span class="label">সর্বমোট</span>
+          <span class="value">৳{{totalAmount}}</span>
+        </div>
+      </div>
+      
+      <p class="message">
+        আপনার পেমেন্ট সফলভাবে প্রক্রিয়া হয়েছে। এই রসিদটি আপনার রেকর্ডের 
+        জন্য সংরক্ষণ করুন।
+      </p>
+      
+      <div class="help-box">
+        <p>
+          ❓ সমস্যা হলে: <a href="mailto:support@dakkho.com.bd">support@dakkho.com.bd</a><br>
+          📞 হটলাইন: <a href="tel:+880XXXXXXXXXX">+880-XXXXXXXXXX</a><br>
+          💬 ইন-অ্যাপ: সেটিংস → সাহায্য ও সমর্থন
+        </p>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <p class="message" style="font-size: 13px; text-align: center;">
+        এটি একটি স্বয়ংক্রিয় রসিদ। পেমেন্ট সম্পর্কে প্রশ্ন থাকলে ৭ দিনের মধ্যে 
+        যোগাযোগ করুন।
+      </p>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p>
+        এই ইমেইলটি {{userEmail}}-এ পাঠানো হয়েছে।<br>
+        <a href="{{appDeepLink}}/subscription">সাবস্ক্রিপশন ব্যবস্থাপনা</a> · 
+        <a href="{{unsubscribeUrl}}">আনসাবস্ক্রাইব</a>
+      </p>
+      <p style="margin-top: 16px;">
+        © {{currentYear}} DAKKHO. সর্বস্বত্ব সংরক্ষিত।<br>
+        ঢাকা, বাংলাদেশ
+      </p>
+    </div>
+  </div>
+</body>
+</html>

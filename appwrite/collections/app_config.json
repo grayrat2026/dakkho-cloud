@@ -1,0 +1,125 @@
+{
+  "name": "app_config",
+  "$id": "app_config",
+  "fields": [
+    {
+      "key": "key",
+      "type": "string",
+      "size": 100,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "value",
+      "type": "string",
+      "size": 2000,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "type",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "string",
+      "array": false,
+      "elements": ["string", "number", "boolean", "json", "color"]
+    },
+    {
+      "key": "category",
+      "type": "string",
+      "size": 50,
+      "required": true,
+      "default": "general",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description",
+      "type": "string",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_public",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_editable",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_by",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_key",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["key"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_category",
+      "type": "key",
+      "status": "available",
+      "attributes": ["category"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_is_public",
+      "type": "key",
+      "status": "available",
+      "attributes": ["is_public"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any", "team:admin", "team:instructor"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

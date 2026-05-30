@@ -1,0 +1,134 @@
+{
+  "name": "offline_downloads",
+  "$id": "offline_downloads",
+  "fields": [
+    {
+      "key": "user_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "video_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "course_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "file_size_bytes",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "downloaded_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "expires_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "license_key",
+      "type": "string",
+      "size": 128,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "device_fingerprint",
+      "type": "string",
+      "size": 128,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "status",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "active",
+      "array": false,
+      "elements": ["active", "expired", "revoked"]
+    },
+    {
+      "key": "last_verified_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_user_video",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["user_id", "video_id"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_user_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["user_id", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_expires",
+      "type": "key",
+      "status": "available",
+      "attributes": ["expires_at"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

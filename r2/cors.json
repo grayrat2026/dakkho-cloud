@@ -1,0 +1,14 @@
+[
+  {
+    "AllowedOrigins": ["*"],
+    "AllowedMethods": ["GET", "HEAD", "PUT", "POST", "DELETE"],
+    "AllowedHeaders": ["*"],
+    "ExposeHeaders": [
+      "Content-Length",
+      "Content-Range",
+      "ETag",
+      "x-amz-request-id"
+    ],
+    "MaxAgeSeconds": 3600
+  }
+]

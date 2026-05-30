@@ -1,0 +1,215 @@
+{
+  "name": "videos",
+  "$id": "videos",
+  "fields": [
+    {
+      "key": "chapter_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "course_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title_en",
+      "type": "string",
+      "size": 200,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "sort_order",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "duration_seconds",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "thumbnail_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "hls_manifest_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "drm_key_id",
+      "type": "string",
+      "size": 64,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "drm_key",
+      "type": "string",
+      "size": 128,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "raw_file_id",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "bunny_video_id",
+      "type": "string",
+      "size": 50,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_drm_protected",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_published",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_free_preview",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "file_size_bytes",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "views_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_chapter_sort",
+      "type": "key",
+      "status": "available",
+      "attributes": ["chapter_id", "sort_order"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_course_published",
+      "type": "key",
+      "status": "available",
+      "attributes": ["course_id", "is_published"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_bunny_video",
+      "type": "key",
+      "status": "available",
+      "attributes": ["bunny_video_id"],
+      "orders": ["ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin", "team:instructor"],
+    "update": ["team:admin", "team:instructor"],
+    "delete": ["team:admin"]
+  }
+}

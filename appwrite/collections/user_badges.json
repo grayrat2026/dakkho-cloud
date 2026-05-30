@@ -1,0 +1,64 @@
+{
+  "name": "user_badges",
+  "$id": "user_badges",
+  "fields": [
+    {
+      "key": "user_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "badge_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "earned_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_displayed",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_user_badge",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["user_id", "badge_id"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_user_displayed",
+      "type": "key",
+      "status": "available",
+      "attributes": ["user_id", "is_displayed"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

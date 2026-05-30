@@ -1,0 +1,177 @@
+{
+  "name": "doubts",
+  "$id": "doubts",
+  "fields": [
+    {
+      "key": "user_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "video_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "course_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "timestamp_seconds",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title",
+      "type": "string",
+      "size": 500,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description",
+      "type": "string",
+      "size": 3000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "status",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "open",
+      "array": false,
+      "elements": ["open", "in_progress", "resolved", "closed"]
+    },
+    {
+      "key": "resolution",
+      "type": "string",
+      "size": 5000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "resolved_by",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "resolved_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "ai_response",
+      "type": "string",
+      "size": 5000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "upvote_count",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "chapter_id",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_user_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["user_id", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_video_timestamp",
+      "type": "key",
+      "status": "available",
+      "attributes": ["video_id", "timestamp_seconds"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_course_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["course_id", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_status_upvotes",
+      "type": "key",
+      "status": "available",
+      "attributes": ["status", "upvote_count"],
+      "orders": ["ASC", "DESC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin", "team:instructor"],
+    "create": ["team:admin"],
+    "update": ["team:admin", "team:instructor"],
+    "delete": ["team:admin"]
+  }
+}

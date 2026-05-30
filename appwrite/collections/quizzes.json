@@ -1,0 +1,199 @@
+{
+  "name": "quizzes",
+  "$id": "quizzes",
+  "fields": [
+    {
+      "key": "course_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "chapter_id",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "quiz_type",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "practice",
+      "array": false,
+      "elements": ["practice", "mock_exam", "ai_generated"]
+    },
+    {
+      "key": "time_limit_minutes",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "30",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "passing_score_percent",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "40",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "negative_marking",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "negative_mark_value",
+      "type": "float",
+      "size": 0,
+      "required": false,
+      "default": "0.25",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "max_attempts",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_published",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "shuffle_questions",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "shuffle_options",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "show_answers_after",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "attempt_end",
+      "array": false,
+      "elements": ["attempt_end", "always", "never"]
+    },
+    {
+      "key": "total_questions",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_premium_only",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_by",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_course_chapter",
+      "type": "key",
+      "status": "available",
+      "attributes": ["course_id", "chapter_id"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_type_published",
+      "type": "key",
+      "status": "available",
+      "attributes": ["quiz_type", "is_published"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin", "team:instructor"],
+    "update": ["team:admin", "team:instructor"],
+    "delete": ["team:admin"]
+  }
+}

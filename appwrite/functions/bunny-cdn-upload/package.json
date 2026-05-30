@@ -1,0 +1,10 @@
+{
+  "name": "bunny-cdn-upload",
+  "version": "1.0.0",
+  "description": "DAKKHO Bunny CDN Plug & Play video upload integration",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

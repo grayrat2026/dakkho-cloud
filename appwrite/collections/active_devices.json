@@ -1,0 +1,116 @@
+{
+  "name": "active_devices",
+  "$id": "active_devices",
+  "fields": [
+    {
+      "key": "user_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "device_fingerprint",
+      "type": "string",
+      "size": 128,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "device_name",
+      "type": "string",
+      "size": 100,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "android_id",
+      "type": "string",
+      "size": 64,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "app_version",
+      "type": "string",
+      "size": 20,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "os_version",
+      "type": "string",
+      "size": 20,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "registered_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "last_seen_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_active",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_user_active",
+      "type": "unique",
+      "status": "available",
+      "attributes": ["user_id", "is_active"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_fingerprint",
+      "type": "key",
+      "status": "available",
+      "attributes": ["device_fingerprint"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_last_seen",
+      "type": "key",
+      "status": "available",
+      "attributes": ["last_seen_at"],
+      "orders": ["DESC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

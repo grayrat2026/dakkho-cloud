@@ -1,0 +1,47 @@
+{
+  "Rules": [
+    {
+      "ID": "DeleteTemporaryUploads30Days",
+      "Status": "Enabled",
+      "Filter": {
+        "Prefix": "temp/"
+      },
+      "Expiration": {
+        "Days": 30
+      },
+      "AbortIncompleteMultipartUpload": {
+        "DaysAfterInitiation": 7
+      }
+    },
+    {
+      "ID": "DeleteProcessingArtifacts7Days",
+      "Status": "Enabled",
+      "Filter": {
+        "Prefix": "processing/"
+      },
+      "Expiration": {
+        "Days": 7
+      }
+    },
+    {
+      "ID": "CleanupFailedTranscodes",
+      "Status": "Enabled",
+      "Filter": {
+        "Prefix": "failed/"
+      },
+      "Expiration": {
+        "Days": 3
+      }
+    },
+    {
+      "ID": "AbortIncompleteMultipartUploads",
+      "Status": "Enabled",
+      "Filter": {
+        "Prefix": ""
+      },
+      "AbortIncompleteMultipartUpload": {
+        "DaysAfterInitiation": 3
+      }
+    }
+  ]
+}

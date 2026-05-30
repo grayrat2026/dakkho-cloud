@@ -1,0 +1,10 @@
+{
+  "name": "reminder-scheduler",
+  "version": "1.0.0",
+  "description": "DAKKHO cron job for subscription expiry, study streak, and live class reminders",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

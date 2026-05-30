@@ -1,0 +1,186 @@
+{
+  "name": "live_classes",
+  "$id": "live_classes",
+  "fields": [
+    {
+      "key": "course_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "instructor_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "title",
+      "type": "string",
+      "size": 200,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "description",
+      "type": "string",
+      "size": 2000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "scheduled_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "duration_minutes",
+      "type": "integer",
+      "size": 0,
+      "required": true,
+      "default": "60",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "livekit_room_name",
+      "type": "string",
+      "size": 100,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "status",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "scheduled",
+      "array": false,
+      "elements": ["scheduled", "live", "ended", "cancelled"]
+    },
+    {
+      "key": "recording_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "max_participants",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "100",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "current_participants",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "0",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "thumbnail_url",
+      "type": "url",
+      "size": 500,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "is_premium_only",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "true",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "ended_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_scheduled",
+      "type": "key",
+      "status": "available",
+      "attributes": ["scheduled_at"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_course_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["course_id", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_instructor",
+      "type": "key",
+      "status": "available",
+      "attributes": ["instructor_id"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_status_scheduled",
+      "type": "key",
+      "status": "available",
+      "attributes": ["status", "scheduled_at"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["any"],
+    "create": ["team:admin", "team:instructor"],
+    "update": ["team:admin", "team:instructor"],
+    "delete": ["team:admin"]
+  }
+}

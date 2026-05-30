@@ -1,0 +1,10 @@
+{
+  "name": "payment-verify-sslcommerz",
+  "version": "1.0.0",
+  "description": "DAKKHO SSLCommerz payment verification with IPN + hash",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

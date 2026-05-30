@@ -1,0 +1,10 @@
+{
+  "name": "payment-verify-nagad",
+  "version": "1.0.0",
+  "description": "DAKKHO Nagad payment verification with RSA signing",
+  "main": "entry.js",
+  "type": "module",
+  "dependencies": {
+    "node-appwrite": "^15.0.0"
+  }
+}

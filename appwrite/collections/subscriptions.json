@@ -1,0 +1,143 @@
+{
+  "name": "subscriptions",
+  "$id": "subscriptions",
+  "fields": [
+    {
+      "key": "user_id",
+      "type": "string",
+      "size": 36,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "plan",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "trial",
+      "array": false,
+      "elements": ["trial", "basic", "premium"]
+    },
+    {
+      "key": "status",
+      "type": "enum",
+      "size": 20,
+      "required": true,
+      "default": "active",
+      "array": false,
+      "elements": ["active", "expired", "cancelled", "paused"]
+    },
+    {
+      "key": "started_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "expires_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "cancelled_at",
+      "type": "datetime",
+      "size": 0,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "payment_id",
+      "type": "string",
+      "size": 36,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "auto_renew",
+      "type": "boolean",
+      "size": 0,
+      "required": true,
+      "default": "false",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "trial_days_remaining",
+      "type": "integer",
+      "size": 0,
+      "required": false,
+      "default": "10",
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "features_json",
+      "type": "string",
+      "size": 5000,
+      "required": false,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "created_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    },
+    {
+      "key": "updated_at",
+      "type": "datetime",
+      "size": 0,
+      "required": true,
+      "default": null,
+      "array": false,
+      "elements": []
+    }
+  ],
+  "indexes": [
+    {
+      "key": "idx_user_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["user_id", "status"],
+      "orders": ["ASC", "ASC"]
+    },
+    {
+      "key": "idx_expires",
+      "type": "key",
+      "status": "available",
+      "attributes": ["expires_at"],
+      "orders": ["ASC"]
+    },
+    {
+      "key": "idx_plan_status",
+      "type": "key",
+      "status": "available",
+      "attributes": ["plan", "status"],
+      "orders": ["ASC", "ASC"]
+    }
+  ],
+  "permissions": {
+    "read": ["team:admin"],
+    "create": ["team:admin"],
+    "update": ["team:admin"],
+    "delete": ["team:admin"]
+  }
+}

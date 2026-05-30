@@ -1,0 +1,182 @@
+{
+  "segments": [
+    {
+      "name": "all_users",
+      "description": "All subscribed users",
+      "filters": [
+        {
+          "field": "session_count",
+          "key": "",
+          "relation": ">",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "name": "premium_users",
+      "description": "Users with active premium subscription",
+      "filters": [
+        {
+          "field": "tag",
+          "key": "subscription_type",
+          "relation": "=",
+          "value": "premium"
+        },
+        {
+          "operator": "AND"
+        },
+        {
+          "field": "tag",
+          "key": "subscription_status",
+          "relation": "=",
+          "value": "active"
+        }
+      ]
+    },
+    {
+      "name": "free_users",
+      "description": "Users on free tier (no active subscription)",
+      "filters": [
+        {
+          "field": "tag",
+          "key": "subscription_type",
+          "relation": "=",
+          "value": "free"
+        }
+      ]
+    },
+    {
+      "name": "inactive_users",
+      "description": "Users who haven't opened the app in 7+ days",
+      "filters": [
+        {
+          "field": "session_count",
+          "key": "",
+          "relation": "=",
+          "value": "0"
+        },
+        {
+          "operator": "OR"
+        },
+        {
+          "field": "last_active",
+          "key": "",
+          "relation": ">",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "name": "trial_expiring",
+      "description": "Users whose trial expires within 3 days",
+      "filters": [
+        {
+          "field": "tag",
+          "key": "subscription_type",
+          "relation": "=",
+          "value": "trial"
+        },
+        {
+          "operator": "AND"
+        },
+        {
+          "field": "tag",
+          "key": "trial_expires_days",
+          "relation": "<=",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "name": "bteb_students",
+      "description": "Students enrolled in BTEB courses",
+      "filters": [
+        {
+          "field": "tag",
+          "key": "course_type",
+          "relation": "=",
+          "value": "bteb"
+        }
+      ]
+    },
+    {
+      "name": "android_users",
+      "description": "Users on Android platform",
+      "filters": [
+        {
+          "field": "device_type",
+          "key": "",
+          "relation": "=",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "notification_categories": [
+    {
+      "id": "live_class",
+      "name": "Live Class",
+      "description": "Notifications about upcoming and ongoing live classes",
+      "bengali_name": "লাইভ ক্লাস",
+      "priority": "high",
+      "sound": "default",
+      "examples": [
+        "নতুন লাইভ ক্লাস শুরু হচ্ছে: {course_name}",
+        "আপনার লাইভ ক্লাস ৫ মিনিটে শুরু হবে",
+        "লাইভ ক্লাস রেকর্ডিং আপলোড হয়েছে"
+      ]
+    },
+    {
+      "id": "subscription",
+      "name": "Subscription",
+      "description": "Subscription status changes, renewals, expirations",
+      "bengali_name": "সাবস্ক্রিপশন",
+      "priority": "high",
+      "sound": "default",
+      "examples": [
+        "আপনার সাবস্ক্রিপশন ৩ দিনের মধ্যে শেষ হবে",
+        "পেমেন্ট সফল! প্রিমিয়াম অ্যাক্সেস সক্রিয়",
+        "সাবস্ক্রিপশন নবায়ন ব্যর্থ হয়েছে"
+      ]
+    },
+    {
+      "id": "study_reminder",
+      "name": "Study Reminder",
+      "description": "Daily study reminders and streak notifications",
+      "bengali_name": "পড়াশোনার রিমাইন্ডার",
+      "priority": "normal",
+      "sound": "default",
+      "examples": [
+        "আজকের পড়াশোনা শেষ করুন! স্ট্রিক বজায় রাখুন",
+        "নতুন ভিডিও আপলোড হয়েছে: {chapter_name}",
+        "আপনার ৭ দিনের স্ট্রিক! 🎉"
+      ]
+    },
+    {
+      "id": "announcement",
+      "name": "Announcement",
+      "description": "Important announcements from DAKKHO",
+      "bengali_name": "ঘোষণা",
+      "priority": "high",
+      "sound": "default",
+      "examples": [
+        "নতুন কোর্স যুক্ত হয়েছে: {course_name}",
+        "রক্ষণাবেক্ষণের জন্য অ্যাপ কিছুক্ষণ বন্ধ থাকবে",
+        "ডাকো সংস্করণ ২.০ এখন উপলব্ধ!"
+      ]
+    },
+    {
+      "id": "system",
+      "name": "System",
+      "description": "System notifications (device changes, security alerts)",
+      "bengali_name": "সিস্টেম",
+      "priority": "normal",
+      "sound": "default",
+      "examples": [
+        "নতুন ডিভাইস থেকে লগইন শনাক্ত করা হয়েছে",
+        "অ্যাপ আপডেট পাওয়া যাচ্ছে",
+        "নিরাপত্তা সতর্কতা"
+      ]
+    }
+  ]
+}
